@@ -1,0 +1,11 @@
+.navbar-brand {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-brand .fas {
+    margin-right: 10px;
+    font-size: 30px;
+  }
+
+    

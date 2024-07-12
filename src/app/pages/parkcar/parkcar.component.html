@@ -1,0 +1,28 @@
+<div class="form-card">
+  <h1 style="color: rgb(231, 91, 91);padding-bottom:20px;">ADD CAR TO PARKHUB</h1>
+    <form [formGroup]="parkCarForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="carModelName">Car Model:</label>
+        <input id="carModelName" formControlName="carModelName" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="carType">Car Type:</label>
+        <select id="carType" formControlName="carType" required>
+          <option value="SMALL_CAR">Small</option>
+          <option value="BIG_CAR">Big</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="isHandoverKeys">Do you want to handover keys to Watchman?</label>
+        <select id="isHandoverKeys" formControlName="isHandoverKeys" required>
+          <option value="true">Yes</option>
+          <option value="false">No</option>
+        </select>
+      </div>
+      
+      <button type="submit" [disabled]="!parkCarForm.valid">Park Car</button>
+    </form>
+  </div>
+  

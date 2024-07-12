@@ -1,0 +1,76 @@
+<div *ngIf="parkingStatus" class="parking-status-container">
+  <div class="card">
+    <h2 style="color:rgb(7, 207, 7);font-weight:650;"><i class="fas fa-parking" style="padding-right:10px;padding-bottom:20px;"></i>Cellar Parking Area</h2>
+    <div *ngIf="smallParkingArea" class="section">
+      <h5 style="color:rgb(66, 71, 82);font-weight:700;"> <i class="fas fa-car-side" style="font-size:22px;padding-right: 10px;"></i>SmallCar Slots</h5>
+      <div class="info">
+        <p>Filled Slots: {{ smallParkingArea.filledSlots }}</p>
+        <p>
+          Free Slots:
+          <span [class.no-slots]="smallParkingArea.remainingSlots === 0">
+            {{ smallParkingArea.remainingSlots === 0 ? 'No Slots Available' : smallParkingArea.remainingSlots }}
+          </span>
+        </p>
+        <p>Total Keys Handovered: {{ smallParkingArea.handOveredKeysCount }}</p>
+      </div>
+      <ul class="car-list">
+        <li *ngFor="let car of smallParkingArea.filledCars" class="car-item" [ngClass]="{'small-car': car.carType === 'SMALL_CAR', 'big-car': car.carType === 'BIG_CAR'}">
+          <div class="car-details">
+            <span style="font-weight:700;">Number Plate: {{ "TS "+car.carId.slice(-6) | uppercase }}</span>
+            <span>Model: {{ car.carModelName }}</span>
+            <span>Keys Handovered: {{ car.isHandoverKeys ? 'Yes' : 'No' }}</span>
+            <button class="btn btn-danger btn-sm ml-2" (click)="confirmExitCar(car.carId)" style="width:70px;">Exit</button>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div *ngIf="parkingStatus.parkingArea.BIG_CAR" class="section">
+      <h5 style="color:rgb(66, 71, 82);font-weight:700;"><i class="fas fa-car-side" style="font-size:30px;padding-right: 10px;"></i>BigCar Slots</h5>
+      <div class="info">
+        <p>Filled Slots: {{ parkingStatus.parkingArea.BIG_CAR.filledSlots }}</p>
+        <p>
+          Free Slots:
+          <span [class.no-slots]="parkingStatus.parkingArea.BIG_CAR.remainingSlots === 0">
+            {{ parkingStatus.parkingArea.BIG_CAR.remainingSlots === 0 ? 'No Slots Available' : parkingStatus.parkingArea.BIG_CAR.remainingSlots }}
+          </span>
+        </p>
+        <p>Total Keys Handovered: {{ parkingStatus.parkingArea.BIG_CAR.handOveredKeysCount }}</p>
+      </div>
+      <ul class="car-list">
+        <li *ngFor="let car of parkingStatus.parkingArea.BIG_CAR.filledCars" class="car-item" [ngClass]="{'small-car': car.carType === 'SMALL_CAR', 'big-car': car.carType === 'BIG_CAR'}">
+          <div class="car-details">
+            <span style="font-weight:700;">Number Plate: {{ "TS "+car.carId.slice(-6) | uppercase }}</span>
+            <span>Model: {{ car.carModelName }}</span>
+            <span>Keys Handovered: {{ car.isHandoverKeys ? 'Yes' : 'No' }}</span>
+            <button class="btn btn-danger btn-sm ml-2" (click)="confirmExitCar(car.carId)" style="width:70px;">Exit</button>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+
+  
+  <div class="card">
+    <h2 style="color:rgb(229, 74, 13);font-weight:650;">   <i class="fas fa-ban" style="padding-right:10px;"></i>Open Space</h2>
+    <div class="info">
+      <p>
+        Free Slots:
+        <span [class.no-slots]="parkingStatus.nonParkingArea.nonParkingRemainingCount === 0">
+          {{ parkingStatus.nonParkingArea.nonParkingRemainingCount === 0 ? 'No Slots Available' : parkingStatus.nonParkingArea.nonParkingRemainingCount }}
+        </span>
+      </p>
+      
+    </div>
+    <ul class="car-list">
+      <li *ngFor="let car of parkingStatus.nonParkingArea.nonParkingArea" class="car-item" [ngClass]="{'small-car': car.carType === 'SMALL_CAR', 'big-car': car.carType === 'BIG_CAR'}">
+        <div class="car-details">
+          <span style="font-weight:700;">Number Plate: {{ "TS "+car.carId.slice(-6) | uppercase }}</span>
+          <span>Model: {{ car.carModelName }}</span>
+          <span>Keys Handovered: {{ car.isHandoverKeys ? 'Yes' : 'No' }}</span>
+          <button class="btn btn-danger btn-sm ml-2" (click)="confirmExitCar(car.carId)" style="width:70px;">Exit</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

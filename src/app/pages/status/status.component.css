@@ -1,0 +1,62 @@
+.parking-status-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  margin-bottom:70px;
+}
+
+.card {
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  width: 100%;
+  box-sizing: border-box; 
+}
+
+.section {
+  margin-bottom: 20px;
+}
+
+.info {
+  background-color: #f0f0f0;
+  border-radius: 6px;
+  padding: 10px;
+  margin-bottom: 10px;
+  line-height: 0.7;
+}
+
+.car-list {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; 
+}
+
+.car-item {
+  /* flex-basis: calc(33.33% - 20px);  */
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.car-item.small-car {
+  background-color: #e0f7fa;
+}
+
+.car-item.big-car {
+  background-color: #ffccbc;
+}
+
+.car-details {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.no-slots {
+  color: red;
+}
+

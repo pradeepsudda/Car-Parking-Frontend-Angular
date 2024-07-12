@@ -1,0 +1,21 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  width: 100%;
+  min-height: calc(100vh - 200px);
+  margin-top: 20px;
+}
+
+router-outlet {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box; /* Ensure padding is included in width calculation */
+}
